@@ -1,0 +1,17 @@
+[project]
+authors = [{name = "madliani", email = "madliani@hotmail.com"}]
+description = "A Quote Scraper."
+keywords = ["parser", "quotes", "scraper"]
+license = {file = "COPYING"}
+maintainers = [{name = "madliani", email = "madliani@hotmail.com"}]
+name = "quoter"
+readme = "README.md"
+requires-python = ">=3.12"
+version = "1.0.0"
+
+[project.urls]
+"Bug Tracker" = "https://github.com/madliani/quoter/issues"
+Changelog = "https://github.com/madliani/quoter/CHANGELOG.md"
+Documentation = "https://github.com/madliani/quoter/README.md"
+Homepage = "https://github.com/madliani/quoter"
+Repository = "https://github.com/madliani/quoter.git"

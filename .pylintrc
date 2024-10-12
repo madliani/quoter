@@ -1,0 +1,12 @@
+[DESIGN]
+max-args=3
+max-locals=10
+
+[FORMAT]
+max-line-length=80
+
+[MASTER]
+persistent=yes
+
+[MESSAGES CONTROL]
+disable=C0111,C0411,E0401,E0611,R0903,W0718
