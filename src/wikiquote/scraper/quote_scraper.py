@@ -31,7 +31,10 @@ class QuoteScraper:
         yield from self.quotes
 
     def get_quote(self, index):
-        return self.quotes[index]
+        if len(self.quotes) > 0:
+            return self.quotes[index]
+
+        raise Exception("No quote!")
 
     def get_author(self):
         return self.author
