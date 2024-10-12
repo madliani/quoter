@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import sys
 
 from const.exit_status import ExitStatus
