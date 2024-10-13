@@ -13,4 +13,4 @@ class WikiquotePrinter:
 
     def print_quotes(self, page_scraper):
         quote_printer = QuotePrinter(page_scraper)
-        quote_printer.print()
+        quote_printer.print_all()
