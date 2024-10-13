@@ -4,9 +4,9 @@ class QuotePrinter:
 
     def print_all(self):
         author = self.page_scraper.get_author()
-        quote_count = self.page_scraper.quote_count()
+        quote_count = self.page_scraper.get_count()
         print(f"Список цитат ({author}) ({quote_count}):")
         print()
 
-        for quote in self.page_scraper.all_quotes():
+        for quote in self.page_scraper.get_quotes():
             print(quote)

@@ -27,7 +27,7 @@ class QuoteScraper:
         html = self.fetch()
         self.parse(html)
 
-    def all_quotes(self):
+    def get_quotes(self):
         yield from self.quotes
 
     def get_quote(self, index):
@@ -39,5 +39,5 @@ class QuoteScraper:
     def get_author(self):
         return self.author
 
-    def quote_count(self):
+    def get_count(self):
         return len(self.quotes)
