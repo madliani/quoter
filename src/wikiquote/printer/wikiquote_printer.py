@@ -5,11 +5,11 @@ from wikiquote.printer.quote_printer import QuotePrinter
 class WikiquotePrinter:
     def print_pages(self, pages_scraper):
         author_printer = AuthorPrinter(pages_scraper)
-        author_printer.print()
+        author_printer.print_all()
 
     def pprint_pages(self, pages_scraper):
         author_printer = AuthorPrinter(pages_scraper)
-        author_printer.pprint()
+        author_printer.pprint_all()
 
     def print_quotes(self, page_scraper):
         quote_printer = QuotePrinter(page_scraper)
