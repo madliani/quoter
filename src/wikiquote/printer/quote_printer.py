@@ -2,7 +2,7 @@ class QuotePrinter:
     def __init__(self, page_scraper):
         self.page_scraper = page_scraper
 
-    def print_quotes(self):
+    def print(self):
         author = self.page_scraper.get_author()
         quote_count = self.page_scraper.quote_count()
         print(f"Список цитат ({author}) ({quote_count}):")
