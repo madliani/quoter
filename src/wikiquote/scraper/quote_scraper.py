@@ -1,3 +1,5 @@
+import random
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -38,6 +40,9 @@ class QuoteScraper:
 
     def get_author(self):
         return self.author
+
+    def get_random_quote(self):
+        return random.choice(self.quotes)
 
     def get_count(self):
         return len(self.quotes)
