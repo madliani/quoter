@@ -3,11 +3,11 @@ from wikiquote.printer.quote_printer import QuotePrinter
 
 
 class WikiquotePrinter:
-    def print_pages(self, pages_scraper):
+    def print_authors(self, pages_scraper):
         author_printer = AuthorPrinter(pages_scraper)
         author_printer.print_all()
 
-    def pprint_pages(self, pages_scraper):
+    def pprint_authors(self, pages_scraper):
         author_printer = AuthorPrinter(pages_scraper)
         author_printer.pprint_all()
 
