@@ -34,10 +34,10 @@ class AuthorScraper:
         yield from self.authors
 
     def get_author(self, index):
-        if len(self.authors) > 0:
-            return self.authors[index]
+        if len(self.authors) == 0:
+            raise Exception("No authors!")
 
-        raise Exception("No author!")
+        return self.authors[index]
 
     def get_random_author(self):
         return random.choice(self.authors)
