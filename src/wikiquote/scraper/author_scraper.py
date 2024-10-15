@@ -30,7 +30,7 @@ class AuthorScraper:
         html = self.fetch()
         self.parse(html)
 
-    def all_authors(self):
+    def get_authors(self):
         yield from self.authors
 
     def get_author(self, index):
@@ -39,5 +39,5 @@ class AuthorScraper:
     def get_random_author(self):
         return random.choice(self.authors)
 
-    def author_count(self):
+    def get_count(self):
         return len(self.authors)
