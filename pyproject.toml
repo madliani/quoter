@@ -1,9 +1,9 @@
 [project]
-authors = [{name = "madliani", email = "madliani@hotmail.com"}]
+authors = [{ name = "madliani", email = "madliani@hotmail.com" }]
 description = "A Quote Scraper."
 keywords = ["parser", "quotes", "scraper"]
-license = {file = "COPYING"}
-maintainers = [{name = "madliani", email = "madliani@hotmail.com"}]
+license = { file = "COPYING" }
+maintainers = [{ name = "madliani", email = "madliani@hotmail.com" }]
 name = "quoter"
 readme = "README.md"
 requires-python = ">=3.12"
