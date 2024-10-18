@@ -3,13 +3,13 @@
 import sys
 
 from const.exit_status import ExitStatus
-from wikiquote.scraper.wikiquote_scraper import WikiquoteScraper
+from wikiquote.wikiquote import Wikiquote
 
 
 class App:
     def run(self):
         try:
-            wikiquote_scraper = WikiquoteScraper()
+            wikiquote_scraper = Wikiquote()
             author_scraper = wikiquote_scraper.scrape_authors()
             random_author = author_scraper.get_random_author()
             quote_scraper = wikiquote_scraper.scrape_quotes(random_author)

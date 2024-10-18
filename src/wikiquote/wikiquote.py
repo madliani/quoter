@@ -3,7 +3,7 @@ from wikiquote.scraper.author_scraper import AuthorScraper
 from wikiquote.scraper.quote_scraper import QuoteScraper
 
 
-class WikiquoteScraper:
+class Wikiquote:
     def scrape_authors(self):
         author_scraper = AuthorScraper(PagesConfig)
         author_scraper.scrape()
