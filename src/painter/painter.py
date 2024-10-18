@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 
+from painter.configs.font_config import FontConfig
 from painter.configs.image_config import ImageConfig
 from painter.configs.text_config import TextConfig
 
@@ -13,7 +14,7 @@ class Painter:
 
     def write_text(self, text):
         font = ImageFont.truetype(
-            TextConfig.FONT_PATH.value, TextConfig.FONT_SIZE.value)
+            FontConfig.PATH.value, FontConfig.SIZE.value)
         width, height = self.draw.textsize(text, font)
         x = (ImageConfig.WIDTH.value - width) / 2
         y = (ImageConfig.HEIGHT.value - height) / 2
