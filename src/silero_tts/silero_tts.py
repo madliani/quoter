@@ -2,10 +2,10 @@ import os
 
 import torch
 
-from silero.config.audio_config import AudioConfig
-from silero.config.device_config import DeviceConfig
-from silero.config.model_config import ModelConfig
-from silero.config.speaker_config import SpeakerConfig
+from silero_tts.config.audio_config import AudioConfig
+from silero_tts.config.device_config import DeviceConfig
+from silero_tts.config.model_config import ModelConfig
+from silero_tts.config.speaker_config import SpeakerConfig
 
 
 class SileroTTS:
