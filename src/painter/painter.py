@@ -13,8 +13,7 @@ class Painter:
         self.__draw__ = ImageDraw.Draw(self.__image__)
 
     def write_text(self, text):
-        font = ImageFont.truetype(
-            FontConfig.PATH.value, FontConfig.SIZE.value)
+        font = ImageFont.truetype(FontConfig.PATH.value, FontConfig.SIZE.value)
         width, height = self.__draw__.textsize(text, font)
         x = (ImageConfig.WIDTH.value - width) / 2
         y = (ImageConfig.HEIGHT.value - height) / 2
