@@ -20,8 +20,8 @@ class AuthorLinkScraper:
         soup = BeautifulSoup(html, "lxml")
         author_link_elements = soup.select("div.mw-category-group ul li a")
 
-        for author_link in author_link_elements:
-            link = author_link.get("href")
+        for author_link_elem in author_link_elements:
+            link = author_link_elem.get("href")
 
             if link and self.__category_word__ not in link:
                 self.__author_links__.append(link)
