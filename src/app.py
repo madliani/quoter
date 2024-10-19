@@ -34,8 +34,10 @@ class App:
             quote_scraper = self.wikiquote_scraper.scrape_quotes(
                 author_link)
             quote = quote_scraper.random_quote()
+            author = quote_scraper.author()
+            quote_with_author = f"{quote}\n© {author}"
             self.silero_tts.tts(quote, AppConfig.TTS_PATH.value)
-            self.painter.write_text(quote)
+            self.painter.write_text(quote_with_author)
             self.painter.save(AppConfig.IMG_PATH.value)
         except Exception as exc:
             logging.error(f"An unexpected error occurred: {exc}")
