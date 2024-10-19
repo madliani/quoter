@@ -1,7 +1,7 @@
 import os
-from enum import Enum
+from enum import StrEnum
 
 
-class AppPaths(Enum):
+class AppPaths(StrEnum):
     APP_DIR = os.getcwd()
     USER_DIR = os.path.expanduser("~")
