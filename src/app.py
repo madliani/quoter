@@ -37,8 +37,8 @@ class App:
             self.silero_tts.tts(quote, AppConfig.TTS_PATH.value)
             self.painter.write_text(quote)
             self.painter.save(AppConfig.IMG_PATH.value)
-        except Exception as error:
-            logging.error(f"An unexpected error occurred: {error}")
+        except Exception as exc:
+            logging.error(f"An unexpected error occurred: {exc}")
             traceback.print_exc()
             sys.exit(ExitStatus.FAIL)
 
