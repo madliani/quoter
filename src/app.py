@@ -8,7 +8,6 @@ from silero_tts.silero_tts import SileroTTS
 
 from config.app_config import AppConfig
 from config.tts_config import TTSConfig
-from const.app_paths import AppPaths
 from const.exit_status import ExitStatus
 from painter.painter import Painter
 from wikiquote.wikiquote import Wikiquote
@@ -35,7 +34,7 @@ class App:
             quote_scraper = self.wikiquote_scraper.scrape_quotes(
                 author_link)
             quote = quote_scraper.random_quote()
-            self.silero_tts.tts(quote, AppPaths.TTS_PATH.value)
+            self.silero_tts.tts(quote, AppConfig.TTS_PATH.value)
             self.painter.write_text(quote)
             self.painter.save(AppConfig.IMG_PATH.value)
         except Exception as error:
