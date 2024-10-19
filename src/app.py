@@ -2,6 +2,7 @@
 
 import logging
 import sys
+import traceback
 
 from silero_tts.silero_tts import SileroTTS
 
@@ -39,6 +40,7 @@ class App:
             self.painter.save(AppConfig.IMG_PATH.value)
         except Exception as error:
             logging.error(f"An unexpected error occurred: {error}")
+            traceback.print_exc()
             sys.exit(ExitStatus.FAIL)
 
         sys.exit(ExitStatus.SUCCESS)
