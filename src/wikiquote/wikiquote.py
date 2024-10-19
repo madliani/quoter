@@ -1,14 +1,14 @@
 from wikiquote.config.pages_config import PagesConfig
-from wikiquote.scraper.author_scraper import AuthorScraper
+from wikiquote.scraper.author_link_scraper import AuthorLinkScraper
 from wikiquote.scraper.quote_scraper import QuoteScraper
 
 
 class Wikiquote:
     def scrape_authors(self):
-        author_scraper = AuthorScraper(PagesConfig)
-        author_scraper.scrape()
+        author_link_scraper = AuthorLinkScraper(PagesConfig)
+        author_link_scraper.scrape()
 
-        return author_scraper
+        return author_link_scraper
 
     def scrape_quotes(self, page):
         url = f"https://ru.wikiquote.org{page}"
