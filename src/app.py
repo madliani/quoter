@@ -7,6 +7,7 @@ from silero_tts.silero_tts import SileroTTS
 from const.app_config import AppConfig
 from const.app_paths import AppPaths
 from const.exit_status import ExitStatus
+from const.tts_config import TTSConfig
 from painter.painter import Painter
 from wikiquote.wikiquote import Wikiquote
 
@@ -14,11 +15,11 @@ from wikiquote.wikiquote import Wikiquote
 class App:
     def __init__(self):
         silero_tts_opts = {
-            "device": "cpu",
-            "language": "ru",
-            "model_id": "v4_ru",
-            "sample_rate": 48_000,
-            "speaker": "baya"
+            "device": TTSConfig.DEVICE.value,
+            "language": TTSConfig.LANGUAGE.value,
+            "model_id": TTSConfig.MODEL.value,
+            "sample_rate": TTSConfig.SAMPLE_RATE.value,
+            "speaker": TTSConfig.SPEAKER.value
         }
 
         self.painter = Painter()
