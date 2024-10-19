@@ -4,6 +4,7 @@ import sys
 
 from silero_tts.silero_tts import SileroTTS
 
+from const.app_config import AppConfig
 from const.app_paths import AppPaths
 from const.exit_status import ExitStatus
 from painter.painter import Painter
@@ -32,7 +33,7 @@ class App:
             random_quote = quote_scraper.get_random_quote()
             self.silero_tts.tts(random_quote, AppPaths.TTS_PATH.value)
             self.painter.write_text(random_quote)
-            self.painter.save(AppPaths.IMG_PATH.value)
+            self.painter.save(AppConfig.IMG_PATH.value)
             sys.exit(ExitStatus.SUCCESS)
         except Exception as error:
             print(f"An unexpected error occurred: {error}")
