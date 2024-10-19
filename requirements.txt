@@ -3,5 +3,4 @@ lxml== 5.3.0
 numpy==2.1.2
 pillow-simd==9.5.0.post2
 requests== 2.32.3
-torch==2.4.1
-torchaudio==2.4.1
+silero-tts==0.0.5
