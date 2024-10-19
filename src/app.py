@@ -36,10 +36,11 @@ class App:
             self.silero_tts.tts(quote, AppPaths.TTS_PATH.value)
             self.painter.write_text(quote)
             self.painter.save(AppConfig.IMG_PATH.value)
-            sys.exit(ExitStatus.SUCCESS)
         except Exception as error:
             print(f"An unexpected error occurred: {error}")
             sys.exit(ExitStatus.FAIL)
+
+        sys.exit(ExitStatus.SUCCESS)
 
 
 if __name__ == "__main__":
