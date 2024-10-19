@@ -13,7 +13,7 @@ from wikiquote.wikiquote import Wikiquote
 
 class App:
     def __init__(self):
-        silero_tts_opt = {
+        silero_tts_opts = {
             "device": "cpu",
             "language": "ru",
             "model_id": "v4_ru",
@@ -22,7 +22,7 @@ class App:
         }
 
         self.painter = Painter()
-        self.silero_tts = SileroTTS(**silero_tts_opt)
+        self.silero_tts = SileroTTS(**silero_tts_opts)
         self.wikiquote_scraper = Wikiquote()
 
     def run(self):
