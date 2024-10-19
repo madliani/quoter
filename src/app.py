@@ -30,10 +30,9 @@ class App:
             random_author = author_scraper.get_random_author()
             quote_scraper = self.wikiquote_scraper.scrape_quotes(random_author)
             random_quote = quote_scraper.get_random_quote()
-            self.silero_tts.tts(random_quote, f"{
-                AppPaths.USER_DIR.value}/Downloads/tts.wav")
+            self.silero_tts.tts(random_quote, AppPaths.TTS_PATH.value)
             self.painter.write_text(random_quote)
-            self.painter.save(f"{AppPaths.USER_DIR.value}/Downloads/img.png")
+            self.painter.save(AppPaths.IMG_PATH.value)
             sys.exit(ExitStatus.SUCCESS)
         except Exception as error:
             print(f"An unexpected error occurred: {error}")
