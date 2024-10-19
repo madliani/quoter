@@ -1,5 +1,5 @@
-from enum import Enum
+from enum import StrEnum
 
 
-class TextConfig(Enum):
+class TextConfig(StrEnum):
     COLOR = "black"

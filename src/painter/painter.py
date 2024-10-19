@@ -8,18 +8,17 @@ from painter.configs.text_config import TextConfig
 class Painter:
     def __init__(self):
         size = (ImageConfig.WIDTH.value, ImageConfig.HEIGHT.value)
-        self.image = Image.new(ImageConfig.MODE.value,
-                               size, ImageConfig.COLOR.value)
-        self.draw = ImageDraw.Draw(self.image)
+        self.__image__ = Image.new(ImageConfig.MODE.value,
+                                   size, ImageConfig.COLOR.value)
+        self.__draw__ = ImageDraw.Draw(self.__image__)
 
     def write_text(self, text):
         font = ImageFont.truetype(
             FontConfig.PATH.value, FontConfig.SIZE.value)
-        width, height = self.draw.textsize(text, font)
+        width, height = self.__draw__.textsize(text, font)
         x = (ImageConfig.WIDTH.value - width) / 2
         y = (ImageConfig.HEIGHT.value - height) / 2
-        self.draw.text((x, y), text,
-                       TextConfig.COLOR.value, font)
+        self.__draw__.text((x, y), text, TextConfig.COLOR, font)
 
     def save(self, path):
-        self.image.save(path)
+        self.__image__.save(path)
