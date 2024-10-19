@@ -29,8 +29,9 @@ class App:
     def run(self):
         try:
             author_link_scraper = self.wikiquote_scraper.scrape_authors()
-            random_author = author_link_scraper.random_author_link()
-            quote_scraper = self.wikiquote_scraper.scrape_quotes(random_author)
+            random_author_link = author_link_scraper.random_author_link()
+            quote_scraper = self.wikiquote_scraper.scrape_quotes(
+                random_author_link)
             random_quote = quote_scraper.random_quote()
             self.silero_tts.tts(random_quote, AppPaths.TTS_PATH.value)
             self.painter.write_text(random_quote)
