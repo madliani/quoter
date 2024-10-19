@@ -6,12 +6,12 @@ from bs4 import BeautifulSoup
 
 class QuoteScraper:
     def __init__(self, url):
-        self.url = url
-        self.author = None
-        self.quotes = []
+        self.__url__ = url
+        self.__author__ = None
+        self.__quotes__ = []
 
     def fetch(self):
-        response = requests.get(self.url, timeout=1)
+        response = requests.get(self.__url__, timeout=1)
         response.raise_for_status()
 
         return response.text
@@ -19,30 +19,30 @@ class QuoteScraper:
     def parse(self, html):
         soup = BeautifulSoup(html, "lxml")
         title = soup.select_one("span.mw-page-title-main")
-        quote_paragraphs = soup.select("div.poem p")
-        self.author = title.text
+        quote_elements = soup.select("div.poem p")
+        self.__author__ = title.text
 
-        for quote_paragraph in quote_paragraphs:
-            self.quotes.append(quote_paragraph.text)
+        for quote_paragraph in quote_elements:
+            self.__quotes__.append(quote_paragraph.text)
 
     def scrape(self):
         html = self.fetch()
         self.parse(html)
 
-    def get_quotes(self):
-        yield from self.quotes
+    def quotes(self):
+        yield from self.__quotes__
 
-    def get_quote(self, index):
-        if len(self.quotes) == 0:
+    def quote(self, index):
+        if len(self.__quotes__) == 0:
             raise Exception("No quotes!")
 
-        return self.quotes[index]
+        return self.__quotes__[index]
 
-    def get_author(self):
-        return self.author
+    def author(self):
+        return self.__author__
 
-    def get_random_quote(self):
-        return random.choice(self.quotes)
+    def random_quote(self):
+        return random.choice(self.__quotes__)
 
-    def get_count(self):
-        return len(self.quotes)
+    def length(self):
+        return len(self.__quotes__)
