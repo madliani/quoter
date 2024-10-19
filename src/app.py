@@ -11,27 +11,29 @@ from wikiquote.wikiquote import Wikiquote
 
 
 class App:
-    def run(self):
+    def __init__(self):
         silero_tts_opt = {
-            "model_id": 'v4_ru',
-            "language": 'ru',
-            "speaker": 'baya',
+            "device": "cpu",
+            "language": "ru",
+            "model_id": "v4_ru",
             "sample_rate": 48_000,
-            "device": 'cpu'
+            "speaker": "baya"
         }
 
+        self.painter = Painter()
+        self.silero_tts = SileroTTS(**silero_tts_opt)
+        self.wikiquote_scraper = Wikiquote()
+
+    def run(self):
         try:
-            wikiquote_scraper = Wikiquote()
-            silero_tts = SileroTTS(**silero_tts_opt)
-            painter = Painter()
-            author_scraper = wikiquote_scraper.scrape_authors()
+            author_scraper = self.wikiquote_scraper.scrape_authors()
             random_author = author_scraper.get_random_author()
-            quote_scraper = wikiquote_scraper.scrape_quotes(random_author)
+            quote_scraper = self.wikiquote_scraper.scrape_quotes(random_author)
             random_quote = quote_scraper.get_random_quote()
-            silero_tts.tts(random_quote, f"{
-                           os.path.expanduser("~")}/Downloads/tts.wav")
-            painter.write_text(random_quote)
-            painter.save(f"{os.path.expanduser("~")}/Downloads/img.png")
+            self.silero_tts.tts(random_quote, f"{
+                os.path.expanduser("~")}/Downloads/tts.wav")
+            self.painter.write_text(random_quote)
+            self.painter.save(f"{os.path.expanduser("~")}/Downloads/img.png")
             sys.exit(ExitStatus.SUCCESS)
         except Exception as error:
             print(f"An unexpected error occurred: {error}")
