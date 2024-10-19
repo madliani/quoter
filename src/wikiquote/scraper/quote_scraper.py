@@ -22,8 +22,8 @@ class QuoteScraper:
         quote_elements = soup.select("div.poem p")
         self.__author__ = title.text
 
-        for quote_paragraph in quote_elements:
-            self.__quotes__.append(quote_paragraph.text)
+        for quote_elem in quote_elements:
+            self.__quotes__.append(quote_elem.text)
 
     def scrape(self):
         html = self.fetch()
