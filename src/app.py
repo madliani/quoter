@@ -4,10 +4,10 @@ import sys
 
 from silero_tts.silero_tts import SileroTTS
 
-from const.app_config import AppConfig
+from config.app_config import AppConfig
+from config.tts_config import TTSConfig
 from const.app_paths import AppPaths
 from const.exit_status import ExitStatus
-from const.tts_config import TTSConfig
 from painter.painter import Painter
 from wikiquote.wikiquote import Wikiquote
 
