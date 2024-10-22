@@ -37,7 +37,7 @@ class App:
             self.silero_tts.tts(quote_with_author, AppConfig.TTS_PATH)
         except Exception:
             logging.exception("An unexpected error occurred")
-            traceback.print_exc()
+            logging.exception(traceback.format_exc())
             sys.exit(ExitStatus.FAIL)
 
         sys.exit(ExitStatus.SUCCESS)
