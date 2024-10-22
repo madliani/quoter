@@ -33,8 +33,8 @@ class App:
                 author_link)
             quote = quote_scraper.random_quote()
             author = quote_scraper.author()
-            quote_with_author = f"{quote}\n© {author}"
-            self.silero_tts.tts(quote, AppConfig.TTS_PATH)
+            quote_with_author = f"{quote}\n {author}"
+            self.silero_tts.tts(quote_with_author, AppConfig.TTS_PATH)
         except Exception as exc:
             logging.error(f"An unexpected error occurred: {exc}")
             traceback.print_exc()
