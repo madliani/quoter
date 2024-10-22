@@ -13,22 +13,22 @@ quote-style = "double"
 
 [lint]
 fixable = ["ALL"]
-ignore = ["D203", "D213"]
+ignore = ["D100", "D101", "D102", "D107", "D203", "D213", "TRY002"]
 select = [
-	"C90",
-	"D",
-	"E",
-	"ERA",
-	"F",
-	"FLY",
-	"FURB",
-	"I",
-	"N",
-	"PERF",
-	"PL",
-	"RUF",
-	"TRY",
-	"UP",
-	"W"
+    "C90",
+    "D",
+    "E",
+    "ERA",
+    "F",
+    "FLY",
+    "FURB",
+    "I",
+    "N",
+    "PERF",
+    "PL",
+    "RUF",
+    "TRY",
+    "UP",
+    "W",
 ]
 unfixable = []

@@ -35,8 +35,8 @@ class App:
             author = quote_scraper.author()
             quote_with_author = f"{quote}\n {author}"
             self.silero_tts.tts(quote_with_author, AppConfig.TTS_PATH)
-        except Exception as exc:
-            logging.error(f"An unexpected error occurred: {exc}")
+        except Exception:
+            logging.exception("An unexpected error occurred")
             traceback.print_exc()
             sys.exit(ExitStatus.FAIL)
 
