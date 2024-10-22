@@ -1,0 +1,34 @@
+# https://github.com/PyCQA/pydocstyle/issues/141
+# https://github.com/PyCQA/pydocstyle/issues/242
+# https://github.com/PyCQA/pydocstyle/issues/400
+
+indent-width = 4
+line-length = 80
+target-version = "py312"
+
+[format]
+indent-style = "space"
+line-ending = "auto"
+quote-style = "double"
+
+[lint]
+fixable = ["ALL"]
+ignore = ["D203", "D213"]
+select = [
+	"C90",
+	"D",
+	"E",
+	"ERA",
+	"F",
+	"FLY",
+	"FURB",
+	"I",
+	"N",
+	"PERF",
+	"PL",
+	"RUF",
+	"TRY",
+	"UP",
+	"W"
+]
+unfixable = []
