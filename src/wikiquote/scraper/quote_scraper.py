@@ -3,6 +3,8 @@ import random
 import requests
 from bs4 import BeautifulSoup
 
+from wikiquote.const.exception_message import ExceptionMessage
+
 
 class QuoteScraper:
     def __init__(self, url):
@@ -34,7 +36,7 @@ class QuoteScraper:
 
     def quote(self, index):
         if len(self.__quotes__) == 0:
-            raise Exception("No quotes!")
+            raise Exception(ExceptionMessage.NO_QUOTES)
 
         return self.__quotes__[index]
 

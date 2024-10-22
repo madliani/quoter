@@ -3,6 +3,8 @@ import random
 import requests
 from bs4 import BeautifulSoup
 
+from wikiquote.const.exception_message import ExceptionMessage
+
 
 class AuthorLinkScraper:
     def __init__(self, config):
@@ -35,7 +37,7 @@ class AuthorLinkScraper:
 
     def author_link(self, index):
         if len(self.__author_links__) == 0:
-            raise Exception("No authors!")
+            raise Exception(ExceptionMessage.NO_AUTHORS)
 
         return self.__author_links__[index]
 
