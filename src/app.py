@@ -4,6 +4,7 @@ import logging
 import sys
 import traceback
 
+import nltk
 from silero_tts.silero_tts import SileroTTS
 
 from config.app_config import AppConfig
@@ -23,6 +24,7 @@ class App:
             "speaker": TTSConfig.SPEAKER.value
         }
 
+        nltk.data.path.append(AppConfig.NLTK_DATA_PATH.value)
         self.painter = Painter()
         self.silero_tts = SileroTTS(**silero_tts_opts)
         self.wikiquote_scraper = Wikiquote()
