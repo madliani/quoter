@@ -44,6 +44,9 @@ class QuoteScraper:
         return self.__quotes__[index]
 
     def author(self):
+        if self.__author__ is None:
+            raise Exception(ExceptionMessage.NO_AUTHOR)
+
         return self.__author__
 
     def random_quote(self):
