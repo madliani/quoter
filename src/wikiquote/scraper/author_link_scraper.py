@@ -33,6 +33,9 @@ class AuthorLinkScraper:
         self.parse(html)
 
     def author_links(self):
+        if len(self.__author_links__) == 0:
+            raise Exception(ExceptionMessage.NO_AUTHORS)
+
         yield from self.__author_links__
 
     def author_link(self, index):
@@ -42,6 +45,9 @@ class AuthorLinkScraper:
         return self.__author_links__[index]
 
     def random_author_link(self):
+        if len(self.__author_links__) == 0:
+            raise Exception(ExceptionMessage.NO_AUTHORS)
+
         return random.choice(self.__author_links__)
 
     def length(self):
