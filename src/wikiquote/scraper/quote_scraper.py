@@ -32,6 +32,9 @@ class QuoteScraper:
         self.parse(html)
 
     def quotes(self):
+        if len(self.__quotes__) == 0:
+            raise Exception(ExceptionMessage.NO_QUOTES)
+
         yield from self.__quotes__
 
     def quote(self, index):
@@ -44,6 +47,9 @@ class QuoteScraper:
         return self.__author__
 
     def random_quote(self):
+        if len(self.__quotes__) == 0:
+            raise Exception(ExceptionMessage.NO_QUOTES)
+
         return random.choice(self.__quotes__)
 
     def length(self):
