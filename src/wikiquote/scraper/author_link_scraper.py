@@ -8,12 +8,12 @@ from wikiquote.const.exception_message import ExceptionMessage
 
 class AuthorLinkScraper:
     def __init__(self, config):
-        self.__url__ = config.BASE_URL
-        self.__category_word__ = config.CATEGORY_WORD
-        self.__author_links__ = []
+        self._url_ = config.BASE_URL
+        self._category_word_ = config.CATEGORY_WORD
+        self._author_links_ = []
 
     def fetch(self):
-        response = requests.get(self.__url__, timeout=1)
+        response = requests.get(self._url_, timeout=1)
         response.raise_for_status()
 
         return response.text
@@ -25,30 +25,30 @@ class AuthorLinkScraper:
         for author_link_elem in author_link_elements:
             link = author_link_elem.get("href")
 
-            if link and self.__category_word__ not in link:
-                self.__author_links__.append(link)
+            if link and self._category_word_ not in link:
+                self._author_links_.append(link)
 
     def scrape(self):
         html = self.fetch()
         self.parse(html)
 
     def author_links(self):
-        if len(self.__author_links__) == 0:
+        if len(self._author_links_) == 0:
             raise Exception(ExceptionMessage.NO_AUTHORS)
 
-        yield from self.__author_links__
+        yield from self._author_links_
 
     def author_link(self, index):
-        if len(self.__author_links__) == 0:
+        if len(self._author_links_) == 0:
             raise Exception(ExceptionMessage.NO_AUTHORS)
 
-        return self.__author_links__[index]
+        return self._author_links_[index]
 
     def random_author_link(self):
-        if len(self.__author_links__) == 0:
+        if len(self._author_links_) == 0:
             raise Exception(ExceptionMessage.NO_AUTHORS)
 
-        return random.choice(self.__author_links__)
+        return random.choice(self._author_links_)
 
     def length(self):
-        return len(self.__author_links__)
+        return len(self._author_links_)
