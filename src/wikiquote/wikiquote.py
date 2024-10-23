@@ -1,11 +1,11 @@
-from wikiquote.config.pages_config import PagesConfig
+from wikiquote.config.author_link_config import AuthorLinkConfig
 from wikiquote.scraper.author_link_scraper import AuthorLinkScraper
 from wikiquote.scraper.quote_scraper import QuoteScraper
 
 
 class Wikiquote:
     def scrape_authors(self):
-        author_link_scraper = AuthorLinkScraper(PagesConfig)
+        author_link_scraper = AuthorLinkScraper(AuthorLinkConfig)
         author_link_scraper.scrape()
 
         return author_link_scraper
