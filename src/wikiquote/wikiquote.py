@@ -8,9 +8,10 @@ from wikiquote.scraper.quote_scraper import QuoteScraper
 class Wikiquote:
     def scrape_authors(self):
         author_link_scraper = AuthorLinkScraper(AuthorLinkConfig)
-        author_link_scraper.scrape()
+        author_links = author_link_scraper.scrape()
+        author_link_list = List(author_links)
 
-        return author_link_scraper
+        return author_link_list
 
     def scrape_quotes(self, page):
         url = f"{WikiquoteConfig.BASE_URL}{page}"
