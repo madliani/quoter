@@ -29,9 +29,8 @@ class App:
         try:
             author_link_scraper = self.wikiquote_scraper.scrape_authors()
             author_link = author_link_scraper.random_author_link()
-            quote_scraper = self.wikiquote_scraper.scrape_quotes(author_link)
-            quote = quote_scraper.random_quote()
-            author = quote_scraper.author()
+            (author, quotes) = self.wikiquote_scraper.scrape_quotes(author_link)
+            quote = quotes.random_quote()
             quote_with_author = f"{quote}\n {author}"
             self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
         except Exception:
