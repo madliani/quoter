@@ -1,4 +1,4 @@
-from wikiquote.collections.quote_list import QuoteList
+from wikiquote.collections.list import List
 from wikiquote.config.author_link_config import AuthorLinkConfig
 from wikiquote.config.wikiquote_config import WikiquoteConfig
 from wikiquote.scraper.author_link_scraper import AuthorLinkScraper
@@ -16,6 +16,6 @@ class Wikiquote:
         url = f"{WikiquoteConfig.BASE_URL}{page}"
         quote_scraper = QuoteScraper(url)
         (author, quotes) = quote_scraper.scrape()
-        quote_list = QuoteList(quotes)
+        quote_list = List(quotes)
 
         return (author, quote_list)
