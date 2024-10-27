@@ -33,7 +33,7 @@ class App:
             quote = quote_scraper.random_quote()
             author = quote_scraper.author()
             quote_with_author = f"{quote}\n {author}"
-            self.silero_tts.tts(quote_with_author, AppConfig.TTS_PATH)
+            self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
         except Exception:
             logging.exception(traceback.format_exc())
             sys.exit(ExitStatus.FAIL)
