@@ -19,10 +19,10 @@ class AuthorLinkScraper:
         author_links = []
 
         for author_link_elem in author_link_elements:
-            link = author_link_elem.get("href")
+            author_link = author_link_elem.get("href")
 
-            if link and self._category_word_ not in link:
-                author_links.append(link)
+            if author_link and self._category_word_ not in author_link:
+                author_links.append(author_link)
 
         return author_links
 
