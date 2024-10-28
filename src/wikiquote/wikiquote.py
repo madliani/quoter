@@ -16,6 +16,5 @@ class Wikiquote:
         url = f"{WikiquoteConfig.BASE_URL}{page}"
         quote_scraper = QuoteScraper(url)
         (author, quotes) = quote_scraper.scrape()
-        quote_list = List(quotes)
 
-        return (author, quote_list)
+        return (author, List(quotes))
