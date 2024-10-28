@@ -26,20 +26,19 @@ class App:
         self.wikiquote_scraper = Wikiquote()
 
     def run(self):
-        try:
-            author_links = self.wikiquote_scraper.scrape_authors()
-            author_link = author_links.random()
-            (author, quotes) = self.wikiquote_scraper.scrape_quotes(author_link)
-            quote = quotes.random()
-            quote_with_author = f"{quote}\n {author}"
-            self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
-        except Exception:
-            logging.exception(traceback.format_exc())
-            sys.exit(ExitStatus.FAIL)
-
+        author_links = self.wikiquote_scraper.scrape_authors()
+        author_link = author_links.random()
+        (author, quotes) = self.wikiquote_scraper.scrape_quotes(author_link)
+        quote = quotes.random()
+        quote_with_author = f"{quote}\n {author}"
+        self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
         sys.exit(ExitStatus.SUCCESS)
 
 
 if __name__ == "__main__":
-    app = App()
-    app.run()
+    try:
+        app = App()
+        app.run()
+    except Exception:
+        logging.exception(traceback.format_exc())
+        sys.exit(ExitStatus.FAIL)
