@@ -1,21 +1,21 @@
 import random
 
-from wikiquote.const.list_error import ListError
+from wikiquote.const.tuple_error import TupleError
 
 
-class List:
+class Tuple:
     def __init__(self, lst):
-        self._list_ = lst
+        self._list_ = tuple(lst)
 
     def all(self):
         if len(self._list_) == 0:
-            raise Exception(ListError.NO_LIST_ITEM)
+            raise Exception(TupleError.NO_LIST_ITEM)
 
         yield from self._list_
 
     def random(self):
         if len(self._list_) == 0:
-            raise Exception(ListError.NO_LIST_ITEMS)
+            raise Exception(TupleError.NO_LIST_ITEMS)
 
         return random.choice(self._list_)
 
