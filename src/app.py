@@ -1,19 +1,15 @@
 #!/usr/bin/python
 
 import logging
-import random
 import sys
 import traceback
 
 from silero_tts.silero_tts import SileroTTS
 
 from config.app_config import AppConfig
-from config.author_link_config import AuthorLinkConfig
-from config.quote_config import QuoteConfig
 from config.tts_config import TTSConfig
 from const.exit_status import ExitStatus
-from scraper.author_link_scraper import AuthorLinkScraper
-from scraper.quote_scraper import QuoteScraper
+from scraper.wikiquote_scraper import WikiquoteScraper
 
 
 class App:
@@ -26,15 +22,10 @@ class App:
             speaker=TTSConfig.SPEAKER.value,
         )
 
-        self.author_link_scraper = AuthorLinkScraper(AuthorLinkConfig)
-        self.quote_scraper = QuoteScraper(QuoteConfig)
+        self.wikiquote_scraper = WikiquoteScraper()
 
     def run(self):
-        author_links = self.author_link_scraper.scrape()
-        author_link = random.choice(author_links)
-        (author, quotes) = self.quote_scraper.scrape(author_link)
-        quote = random.choice(quotes)
-        quote_with_author = f"{quote}\n {author}"
+        quote_with_author = self.wikiquote_scraper.quote_with_author()
         self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
         sys.exit(ExitStatus.SUCCESS)
 
