@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 class AuthorLinkScraper:
     def __init__(self, config):
-        self._url_ = config.BASE_URL
+        self._url_ = config.URL
         self._category_word_ = config.CATEGORY_WORD
 
     def fetch(self):
