@@ -3,11 +3,11 @@ from bs4 import BeautifulSoup
 
 
 class QuoteScraper:
-    def __init__(self, url):
-        self._url_ = url
+    def __init__(self, config):
+        self._base_url_ = config.BASE_URL
 
-    def fetch(self):
-        response = requests.get(self._url_, timeout=1)
+    def fetch(self, url):
+        response = requests.get(url, timeout=1)
         response.raise_for_status()
 
         return response.text
@@ -24,7 +24,8 @@ class QuoteScraper:
 
         return (author, quotes)
 
-    def scrape(self):
-        html = self.fetch()
+    def scrape(self, author_link):
+        url = f"{self._base_url_}{author_link}"
+        html = self.fetch(url)
 
         return self.parse(html)

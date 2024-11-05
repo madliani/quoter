@@ -26,12 +26,13 @@ class App:
             speaker=TTSConfig.SPEAKER.value,
         )
 
+        self.author_link_scraper = AuthorLinkScraper(AuthorLinkConfig)
+        self.quote_scraper = QuoteScraper(QuoteConfig)
+
     def run(self):
-        author_links = AuthorLinkScraper(AuthorLinkConfig).scrape()
+        author_links = self.author_link_scraper.scrape()
         author_link = random.choice(author_links)
-        (author, quotes) = QuoteScraper(
-            f"{QuoteConfig.BASE_URL}{author_link}"
-        ).scrape()
+        (author, quotes) = self.quote_scraper.scrape(author_link)
         quote = random.choice(quotes)
         quote_with_author = f"{quote}\n {author}"
         self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
