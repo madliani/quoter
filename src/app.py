@@ -9,7 +9,7 @@ from silero_tts.silero_tts import SileroTTS
 from config.app_config import AppConfig
 from config.tts_config import TTSConfig
 from const.exit_status import ExitStatus
-from scraper.wikiquote_scraper import WikiquoteScraper
+from scraper.random_quote_scraper import RandomQuoteScraper
 
 
 class App:
@@ -21,10 +21,10 @@ class App:
             sample_rate=TTSConfig.SAMPLE_RATE.value,
             speaker=TTSConfig.SPEAKER.value,
         )
-        self.wikiquote_scraper = WikiquoteScraper()
+        self.random_quote_scraper = RandomQuoteScraper()
 
     def run(self):
-        quote_with_author = self.wikiquote_scraper.quote_with_author()
+        quote_with_author = self.random_quote_scraper.quote_with_author()
         self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
         sys.exit(ExitStatus.SUCCESS)
 

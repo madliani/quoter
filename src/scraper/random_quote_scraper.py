@@ -6,7 +6,7 @@ from scraper.author_link_scraper import AuthorLinkScraper
 from scraper.quote_scraper import QuoteScraper
 
 
-class WikiquoteScraper:
+class RandomQuoteScraper:
     def __init__(self):
         self.author_link_scraper = AuthorLinkScraper(AuthorLinkConfig)
         self.quote_scraper = QuoteScraper(QuoteConfig)
