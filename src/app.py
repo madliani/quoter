@@ -14,15 +14,14 @@ from wikiquote.wikiquote import Wikiquote
 
 class App:
     def __init__(self):
-        silero_tts_opts = {
-            "device": TTSConfig.DEVICE.value,
-            "language": TTSConfig.LANGUAGE.value,
-            "model_id": TTSConfig.MODEL.value,
-            "sample_rate": TTSConfig.SAMPLE_RATE.value,
-            "speaker": TTSConfig.SPEAKER.value,
-        }
+        self.silero_tts = SileroTTS(
+            device=TTSConfig.DEVICE.value,
+            language=TTSConfig.LANGUAGE.value,
+            model_id=TTSConfig.MODEL.value,
+            sample_rate=TTSConfig.SAMPLE_RATE.value,
+            speaker=TTSConfig.SPEAKER.value,
+        )
 
-        self.silero_tts = SileroTTS(**silero_tts_opts)
         self.wikiquote_scraper = Wikiquote()
 
     def run(self):
