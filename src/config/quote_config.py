@@ -1,5 +1,5 @@
 from enum import StrEnum
 
 
-class WikiquoteConfig(StrEnum):
+class QuoteConfig(StrEnum):
     BASE_URL = "https://ru.wikiquote.org"
