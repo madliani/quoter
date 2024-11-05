@@ -1,4 +1,4 @@
-from wikiquote.collections.tuple import Tuple
+from wikiquote.collection.tuple import Tuple
 from wikiquote.config.author_link_config import AuthorLinkConfig
 from wikiquote.config.wikiquote_config import WikiquoteConfig
 from wikiquote.scraper.author_link_scraper import AuthorLinkScraper
