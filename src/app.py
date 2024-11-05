@@ -21,7 +21,6 @@ class App:
             sample_rate=TTSConfig.SAMPLE_RATE.value,
             speaker=TTSConfig.SPEAKER.value,
         )
-
         self.wikiquote_scraper = WikiquoteScraper()
 
     def run(self):
