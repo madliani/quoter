@@ -1,6 +1,6 @@
 import random
 
-from wikiquote.const.tuple_error import TupleError
+from wikiquote.exception.tuple_item_error import TupleItemError
 
 
 class Tuple:
@@ -9,13 +9,13 @@ class Tuple:
 
     def all(self):
         if len(self._list_) == 0:
-            raise Exception(TupleError.NO_LIST_ITEM)
+            raise TupleItemError()
 
         yield from self._list_
 
     def random(self):
         if len(self._list_) == 0:
-            raise Exception(TupleError.NO_LIST_ITEMS)
+            raise TupleItemError()
 
         return random.choice(self._list_)
 
