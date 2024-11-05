@@ -22,12 +22,12 @@ class App:
             speaker=TTSConfig.SPEAKER.value,
         )
 
-        self.wikiquote_scraper = Wikiquote()
+        self.wikiquote = Wikiquote()
 
     def run(self):
-        author_links = self.wikiquote_scraper.scrape_authors()
+        author_links = self.wikiquote.scrape_authors()
         author_link = author_links.random()
-        (author, quotes) = self.wikiquote_scraper.scrape_quotes(author_link)
+        (author, quotes) = self.wikiquote.scrape_quotes(author_link)
         quote = quotes.random()
         quote_with_author = f"{quote}\n {author}"
         self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
