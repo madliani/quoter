@@ -21,10 +21,10 @@ class App:
             sample_rate=TTSConfig.SAMPLE_RATE.value,
             speaker=TTSConfig.SPEAKER.value,
         )
-        self.random_quote_scraper = RandomQuoteScraper()
+        self.quote_scraper = RandomQuoteScraper()
 
     def run(self):
-        quote_with_author = self.random_quote_scraper.quote_with_author()
+        quote_with_author = self.quote_scraper.quote_with_author()
         self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
         sys.exit(ExitStatus.SUCCESS)
 
