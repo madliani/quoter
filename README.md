@@ -1,6 +1,5 @@
 # Quoter
 
-<!-- markdownlint-disable MD033 -->
 <p align="center">
     <img src="./assets/icons/quote.png" alt="Quoter logo" width="192" height="192" />
 
