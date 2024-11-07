@@ -9,13 +9,13 @@ from scraper.quote_scraper import QuoteScraper
 
 class RandomQuoteScraper:
     def __init__(self: Self) -> None:
-        self.author_link_scraper = AuthorLinkScraper(AuthorLinkConfig)
-        self.quote_scraper = QuoteScraper(QuoteConfig)
+        self.__author_link_scraper = AuthorLinkScraper(AuthorLinkConfig)
+        self.__quote_scraper = QuoteScraper(QuoteConfig)
 
     def quote_with_author(self: Self) -> str:
-        author_links = self.author_link_scraper.scrape()
+        author_links = self.__author_link_scraper.scrape()
         author_link = random.choice(author_links)
-        (author, quotes) = self.quote_scraper.scrape(author_link)
+        (author, quotes) = self.__quote_scraper.scrape(author_link)
         quote = random.choice(quotes)
 
         return f"{quote}\n {author}"
