@@ -1,4 +1,4 @@
-from typing import Self
+from typing import Final, Self
 
 import requests
 from bs4 import BeautifulSoup
@@ -8,7 +8,7 @@ from config.quote_config import QuoteConfig
 
 class QuoteScraper:
     def __init__(self: Self, config: QuoteConfig) -> None:
-        self.__base_url = config.BASE_URL
+        self.__base_url: Final = config.BASE_URL
 
     def __fetch(self: Self, url: str) -> str:
         response = requests.get(url, timeout=1)
