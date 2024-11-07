@@ -1,19 +1,23 @@
+from typing import Self
+
 import requests
 from bs4 import BeautifulSoup
 
+from config.author_link_config import AuthorLinkConfig
+
 
 class AuthorLinkScraper:
-    def __init__(self, config):
+    def __init__(self: Self, config: AuthorLinkConfig) -> None:
         self._url_ = config.URL
         self._category_word_ = config.CATEGORY_WORD
 
-    def fetch(self):
+    def fetch(self: Self) -> str:
         response = requests.get(self._url_, timeout=1)
         response.raise_for_status()
 
         return response.text
 
-    def parse(self, html):
+    def parse(self: Self, html: str) -> list[str]:
         soup = BeautifulSoup(html, "lxml")
         author_link_elements = soup.select("div.mw-category-group ul li a")
         author_links = []
@@ -26,7 +30,7 @@ class AuthorLinkScraper:
 
         return author_links
 
-    def scrape(self):
+    def scrape(self: Self) -> str:
         html = self.fetch()
 
         return self.parse(html)
