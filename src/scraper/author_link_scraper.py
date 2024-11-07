@@ -1,4 +1,4 @@
-from typing import Self
+from typing import Final, Self
 
 import requests
 from bs4 import BeautifulSoup
@@ -8,8 +8,8 @@ from config.author_link_config import AuthorLinkConfig
 
 class AuthorLinkScraper:
     def __init__(self: Self, config: AuthorLinkConfig) -> None:
-        self.__url = config.URL
-        self.__category_word = config.CATEGORY_WORD
+        self.__url: Final = config.URL
+        self.__category_word: Final = config.CATEGORY_WORD
 
     def __fetch(self: Self) -> str:
         response = requests.get(self.__url, timeout=1)
