@@ -8,7 +8,7 @@ from config.quote_config import QuoteConfig
 
 class QuoteScraper:
     def __init__(self: Self, config: QuoteConfig) -> None:
-        self._base_url_ = config.BASE_URL
+        self.__base_url = config.BASE_URL
 
     def fetch(self: Self, url: str) -> str:
         response = requests.get(url, timeout=1)
@@ -29,7 +29,7 @@ class QuoteScraper:
         return (author, quotes)
 
     def scrape(self: Self, author_link: str) -> str:
-        url = f"{self._base_url_}{author_link}"
+        url = f"{self.__base_url}{author_link}"
         html = self.fetch(url)
 
         return self.parse(html)
