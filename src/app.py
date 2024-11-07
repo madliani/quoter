@@ -15,7 +15,7 @@ from scraper.random_quote_scraper import RandomQuoteScraper
 
 class App:
     def __init__(self: Self) -> None:
-        self.silero_tts = SileroTTS(
+        self.__silero_tts = SileroTTS(
             device=TTSConfig.DEVICE.value,
             language=TTSConfig.LANGUAGE.value,
             model_id=TTSConfig.MODEL.value,
@@ -26,7 +26,7 @@ class App:
 
     def run(self: Self) -> None:
         quote_with_author = self.quote_scraper.quote_with_author()
-        self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
+        self.__silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
 
 
 if __name__ == "__main__":
