@@ -3,7 +3,7 @@
 import logging
 import sys
 import traceback
-from typing import Self
+from typing import Final, Self
 
 from silero_tts.silero_tts import SileroTTS
 
@@ -15,14 +15,14 @@ from scraper.random_quote_scraper import RandomQuoteScraper
 
 class App:
     def __init__(self: Self) -> None:
-        self.__silero_tts = SileroTTS(
+        self.__silero_tts: Final = SileroTTS(
             device=TTSConfig.DEVICE.value,
             language=TTSConfig.LANGUAGE.value,
             model_id=TTSConfig.MODEL.value,
             sample_rate=TTSConfig.SAMPLE_RATE.value,
             speaker=TTSConfig.SPEAKER.value,
         )
-        self.__quote_scraper = RandomQuoteScraper()
+        self.__quote_scraper: Final = RandomQuoteScraper()
 
     def run(self: Self) -> None:
         quote_with_author = self.__quote_scraper.quote_with_author()
