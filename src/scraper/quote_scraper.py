@@ -10,13 +10,13 @@ class QuoteScraper:
     def __init__(self: Self, config: QuoteConfig) -> None:
         self.__base_url = config.BASE_URL
 
-    def fetch(self: Self, url: str) -> str:
+    def __fetch(self: Self, url: str) -> str:
         response = requests.get(url, timeout=1)
         response.raise_for_status()
 
         return response.text
 
-    def parse(self: Self, html: str) -> (str, list[str]):
+    def __parse(self: Self, html: str) -> (str, list[str]):
         soup = BeautifulSoup(html, "lxml")
         title = soup.select_one("span.mw-page-title-main")
         quote_elements = soup.select("div.poem p")
@@ -30,6 +30,6 @@ class QuoteScraper:
 
     def scrape(self: Self, author_link: str) -> str:
         url = f"{self.__base_url}{author_link}"
-        html = self.fetch(url)
+        html = self.__fetch(url)
 
-        return self.parse(html)
+        return self.__parse(html)
