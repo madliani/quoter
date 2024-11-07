@@ -26,13 +26,13 @@ class App:
     def run(self):
         quote_with_author = self.quote_scraper.quote_with_author()
         self.silero_tts.tts(quote_with_author, AppConfig.WAV_PATH)
-        sys.exit(ExitStatus.SUCCESS)
 
 
 if __name__ == "__main__":
     try:
         app = App()
         app.run()
+        sys.exit(ExitStatus.SUCCESS)
     except Exception:
         logging.exception(traceback.format_exc())
         sys.exit(ExitStatus.FAIL)
