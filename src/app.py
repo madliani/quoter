@@ -35,7 +35,8 @@ if __name__ == "__main__":
     try:
         app = App()
         app.run()
-        sys.exit(ExitStatus.SUCCESS)
     except Exception:
         logging.exception(traceback.format_exc())
         sys.exit(ExitStatus.FAIL)
+
+    sys.exit(ExitStatus.SUCCESS)
