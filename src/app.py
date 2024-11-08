@@ -30,6 +30,8 @@ class App:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.ERROR)
+
     try:
         app = App()
         app.run()
