@@ -7,7 +7,7 @@ from config.author_link_config import AuthorLinkConfig
 
 
 class AuthorLinkScraper:
-    def __init__(self: Self, config: AuthorLinkConfig) -> None:
+    def __init__(self: Self, config: type[AuthorLinkConfig]) -> None:
         self.__url: Final = config.URL
         self.__category_word: Final = config.CATEGORY_WORD
 
