@@ -13,7 +13,7 @@ class QuoteScraper:
         self.__base_url: Final = config.BASE_URL
 
     def __fetch(self: Self, url: str) -> str:
-        response = requests.get(url, timeout=1)
+        response: Final = requests.get(url, timeout=1)
         response.raise_for_status()
 
         return response.text
