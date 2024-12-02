@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from config.quote_config import QuoteConfig
+from error.title_not_found import TitleNotFoundError
 
 
 class QuoteScraper:
@@ -16,15 +17,27 @@ class QuoteScraper:
 
         return response.text
 
-    def __parse(self: Self, html: str):
-        soup = BeautifulSoup(html, "lxml")
+    def __parse_title(self: Self, soup: BeautifulSoup):
         title = soup.select_one("span.mw-page-title-main")
+
+        if title is None:
+            raise TitleNotFoundError()
+
+        return title.text
+
+    def __parse_quotes(self: Self, soup: BeautifulSoup):
         quote_elements = soup.select("div.poem p")
-        author = title.text
         quotes = []
 
         for quote_elem in quote_elements:
             quotes.append(quote_elem.text)
+
+        return quotes
+
+    def __parse(self: Self, html: str):
+        soup = BeautifulSoup(html, "lxml")
+        author = self.__parse_title(soup)
+        quotes = self.__parse_quotes(soup)
 
         return author, quotes
 
