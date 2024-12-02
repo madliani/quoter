@@ -8,7 +8,7 @@ from error.title_not_found import TitleNotFoundError
 
 
 class QuoteScraper:
-    def __init__(self: Self, config: QuoteConfig) -> None:
+    def __init__(self: Self, config: type[QuoteConfig]) -> None:
         self.__base_url: Final = config.BASE_URL
 
     def __fetch(self: Self, url: str):
