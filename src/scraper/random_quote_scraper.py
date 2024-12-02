@@ -15,7 +15,7 @@ class RandomQuoteScraper:
     def quote_with_author(self: Self) -> str:
         author_links = self.__author_link_scraper.scrape()
         author_link = random.choice(author_links)
-        (author, quotes) = self.__quote_scraper.scrape(author_link)
+        author, quotes = self.__quote_scraper.scrape(author_link)
         quote = random.choice(quotes)
 
         return f"{quote}\n {author}"
