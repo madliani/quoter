@@ -22,7 +22,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.ERROR)
 
     try:
-        app: Final = App()
+        app = App()
         app.run()
     except Exception:
         logging.exception(traceback.format_exc())
