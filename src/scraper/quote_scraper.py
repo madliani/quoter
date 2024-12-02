@@ -28,7 +28,7 @@ class QuoteScraper:
 
         return (author, quotes)
 
-    def scrape(self: Self, author_link: str) -> str:
+    def scrape(self: Self, author_link: str) -> (str, list[str]):
         url = f"{self.__base_url}{author_link}"
         html = self.__fetch(url)
 
