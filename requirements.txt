@@ -5,4 +5,3 @@ pylyzer==0.0.72
 requests==2.32.3
 ruff-lsp==0.0.58
 ruff==0.7.2
-silero-tts==0.0.5
