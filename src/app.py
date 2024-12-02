@@ -13,7 +13,7 @@ class App:
     def __init__(self: Self) -> None:
         self.__quote_scraper: Final = RandomQuoteScraper()
 
-    def run(self: Self) -> None:
+    def run(self: Self):
         quote_with_author = self.__quote_scraper.quote_with_author()
         print(quote_with_author)
 
