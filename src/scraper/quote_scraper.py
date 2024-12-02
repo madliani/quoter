@@ -19,10 +19,10 @@ class QuoteScraper:
         return response.text
 
     def __parse(self: Self, html: str) -> ParseResult:
-        soup = BeautifulSoup(html, "lxml")
-        title = soup.select_one("span.mw-page-title-main")
-        quote_elements = soup.select("div.poem p")
-        author = title.text
+        soup: Final = BeautifulSoup(html, "lxml")
+        title: Final = soup.select_one("span.mw-page-title-main")
+        quote_elements: Final = soup.select("div.poem p")
+        author: Final = title.text
         quotes = []
 
         for quote_elem in quote_elements:
