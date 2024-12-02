@@ -14,7 +14,7 @@ class App:
         self.__quote_scraper: Final = RandomQuoteScraper()
 
     def run(self: Self) -> None:
-        quote_with_author = self.__quote_scraper.quote_with_author()
+        quote_with_author: Final = self.__quote_scraper.quote_with_author()
         print(quote_with_author)
 
 
