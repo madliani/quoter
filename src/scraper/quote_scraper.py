@@ -5,14 +5,14 @@ from bs4 import BeautifulSoup
 
 from config.quote_config import QuoteConfig
 
-type ParseResult = (Final[str], Final[list[str]])
+type ParseResult = (str, Final[list[str]])
 
 
 class QuoteScraper:
     def __init__(self: Self, config: QuoteConfig) -> None:
         self.__base_url: Final = config.BASE_URL
 
-    def __fetch(self: Self, url: str) -> Final[str]:
+    def __fetch(self: Self, url: str) -> str:
         response = requests.get(url, timeout=1)
         response.raise_for_status()
 
